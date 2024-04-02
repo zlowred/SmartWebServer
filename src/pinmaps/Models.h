@@ -10,6 +10,10 @@
   #include "Pins.Esp32C3.h"
   #define PINMAP_STR "ESP32-C3"
 
+#elif defined(CONFIG_IDF_TARGET_ESP32C6)
+  #include "Pins.Esp32C6.h"
+  #define PINMAP_STR "ESP32-C6"
+
 #elif defined(ESP32)
   #include "Pins.Esp32.h"
   #define PINMAP_STR "ESP32"
