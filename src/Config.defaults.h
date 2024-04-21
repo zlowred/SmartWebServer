@@ -66,11 +66,11 @@
 
 // background ajax page update timing (in milliseconds, 50ms minimum)
 #ifndef AJAX_PAGE_UPDATE_RATE_MS
-#define AJAX_PAGE_UPDATE_RATE_MS      100     // normal ajax page update update rate
+#define AJAX_PAGE_UPDATE_RATE_MS      500     // normal ajax page update update rate
 #endif
 
 #ifndef STATE_POLLING_RATE_MS
-#define STATE_POLLING_RATE_MS         100     // time between updates for most OnStep state information
+#define STATE_POLLING_RATE_MS         500     // time between updates for most OnStep state information
 #endif
 
 // background scanning of OnStep state (in milliseconds, 200ms minimum)

@@ -13,7 +13,7 @@ void OnStepCmd::serialBegin(long baudRate, int swap) {
   if (!firstRun) SERIAL_ONSTEP.end();
   firstRun = false;
   if (swap == ON || swap == AUTO_ON) swap = 1; else swap = 0;
-  #if defined(ESP32) && !defined(ARDUINO_ESP32C6_DEV)
+  #ifdef ESP32
     // locate WeMos D1 R32 serial port pins to match WeMos D1 Mini main and swapped port pins
     if (swap) { 
         VLF("MSG: Attempting connect on swapped port");

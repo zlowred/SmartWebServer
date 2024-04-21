@@ -35,14 +35,10 @@
 
 //--------------------------------------------------------------------------------------------------
 // General purpose initialize for HAL
-#ifdef ARDUINO_ESP32C6_DEV
-#define HAL_INIT() {}
-#else
 #define HAL_INIT() { \
   analogWriteFrequency(10000); \
   analogWriteResolution(ANALOG_WRITE_PWM_BITS); \
 }
-#endif
 
 //-----------------------------------------------------------------------------------------------------
 // Misc. includes and defines to support this processor's operation
@@ -50,7 +46,7 @@
 // MCU reset
 #define HAL_RESET() ESP.restart()
 
-#if defined(ARDUINO_ESP32C3_DEV) || defined(ARDUINO_ESP32C6_DEV)
+#ifdef ARDUINO_ESP32C3_DEV
   // stand-in for delayNanoseconds(), assumes 80MHz clock
   #define delayNanoseconds(ns) { unsigned int c = ESP.getCycleCount() + ns/12.5F; do {} while ((int)(ESP.getCycleCount() - c) < 0); }
 #else
