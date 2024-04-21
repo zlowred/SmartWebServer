@@ -2,17 +2,17 @@
 // Loads pinmap model for current configuration
 #pragma once
 
-#if defined(CONFIG_IDF_TARGET_ESP32S2)
+#if defined(CONFIG_IDF_TARGET_ESP32S3)
+  #include "Pins.Esp32S3.h"
+  #define PINMAP_STR "ESP32-S3"
+
+#elif defined(CONFIG_IDF_TARGET_ESP32S2)
   #include "Pins.Esp32S2.h"
   #define PINMAP_STR "ESP32-S2"
 
 #elif defined(CONFIG_IDF_TARGET_ESP32C3)
   #include "Pins.Esp32C3.h"
   #define PINMAP_STR "ESP32-C3"
-
-#elif defined(CONFIG_IDF_TARGET_ESP32C6)
-  #include "Pins.Esp32C6.h"
-  #define PINMAP_STR "ESP32-C6"
 
 #elif defined(ESP32)
   #include "Pins.Esp32.h"
