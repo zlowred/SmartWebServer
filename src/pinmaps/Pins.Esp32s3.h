@@ -1,10 +1,23 @@
 // -------------------------------------------------------------------------------------------------
-// Pin map for ESP32C6
+// Pin map for ESP32S6
 #pragma once
 
-#ifndef LED_STATUS_PIN      
-  #define LED_STATUS_PIN     RGB_BUILTIN // pin 2 is a guess and is probably wrong
+// #ifdef SERIAL_ONSTEP
+// #undef SERIAL_ONSTEP
+// #endif
+// #define SERIAL_ONSTEP Serial2
+
+#ifdef SERIAL_ONSTEP
+#undef SERIAL_ONSTEP
 #endif
+#define SERIAL_ONSTEP Serial0
+
+#ifdef LED_STATUS_PIN
+#undef LED_STATUS_PIN
+#endif
+#define LED_STATUS_PIN        21 // pin 2 is a guess and is probably wrong
+
+#define USE_NEOPIXEL
 
 #define BOOT0_PIN            OFF // GPIO5 to Boot0 of STM32 etc. (no swapped serial if active)
 

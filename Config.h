@@ -35,8 +35,8 @@
 
 // DISPLAY -------------------------------------------------------------------------------------------------------------------------
 #define DISPLAY_LANGUAGE             L_en //   L_en, English. Or L_ce, L_de, L_en, L_us, L_es two letter country code.        Adjust
-#define DISPLAY_WEATHER               OFF //    OFF, ON ambient conditions in locale default units.                           Option
-#define DISPLAY_INTERNAL_TEMPERATURE  OFF //    OFF, ON internal MCU temp. in locale default units.                           Option
+#define DISPLAY_WEATHER                ON //    OFF, ON ambient conditions in locale default units.                           Option
+#define DISPLAY_INTERNAL_TEMPERATURE   ON //    OFF, ON internal MCU temp. in locale default units.                           Option
 #define DISPLAY_WIFI_SIGNAL_STRENGTH   ON //     ON, Wireless signal strength reported via web interface. OFF otherwise.      Option
 #define DISPLAY_RESET_CONTROLS        OFF //    OFF, ON allows reset if supported, FWU for STM32 firmware upload pin HIGH.    Option
 

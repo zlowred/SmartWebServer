@@ -22,7 +22,11 @@ void OnStepCmd::serialBegin(long baudRate, int swap) {
       } else {
         VLF("MSG: Attempting connect on non-swapped port");
         delay(500);
+        #if defined(SERIAL_RX) && SERIAL_RX != OFF && defined(SERIAL_TX) && SERIAL_TX != OFF
         SERIAL_ONSTEP.begin(baudRate, SERIAL_8N1, SERIAL_RX, SERIAL_TX);
+        #else
+        SERIAL_ONSTEP.begin(baudRate);
+        #endif
       }
   #else
     VF("MSG: Set baud rate to "); VL(baudRate);
@@ -60,13 +64,21 @@ void OnStepCmd::clearSerialChannel() {
   for (int i = 0; i < 3; i++) {
     SERIAL_ONSTEP.print(":#");
     #if LED_STATUS == ON
-      digitalWrite(LED_STATUS_PIN, LED_STATUS_OFF_STATE);
+      #ifdef USE_NEOPIXEL
+        neopixelWrite(LED_STATUS_PIN, 0, 0, 0);
+      #else
+        digitalWrite(LED_STATUS_PIN, LED_STATUS_OFF_STATE);
+      #endif
     #endif
     delay(200);
 
     serialRecvFlush();
     #if LED_STATUS == ON
-      digitalWrite(LED_STATUS_PIN, LED_STATUS_ON_STATE);
+      #ifdef USE_NEOPIXEL
+        neopixelWrite(LED_STATUS_PIN, 4, 4, 4);
+      #else
+        digitalWrite(LED_STATUS_PIN, LED_STATUS_ON_STATE);
+      #endif
     #endif
     delay(200);
   }
